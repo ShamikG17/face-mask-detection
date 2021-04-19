@@ -1,7 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import Typewriter from "typewriter-effect";
 import about from "../../images/about.jpg";
+import product1 from "../../images/product1.jpg";
+import product2 from "../../images/product2.jpeg";
+import product3 from "../../images/product3.jpeg";
+import { Parallax, Background } from "react-parallax";
+import ProjectCarousel from "../ProjectCarousel";
+import { ProjectsData } from "../ProjectsData";
 
 const Home = () => {
   return (
@@ -10,7 +17,7 @@ const Home = () => {
         <div className="hero-text">
           <h1>
             Offering{" "}
-            <span style={{ color: "#E0A42B" }}>innovative solutions</span> in
+            <span style={{ color: "#F6A41D" }}>Innovative Solutions</span> in
           </h1>
           <div className="hero-typewriter">
             <Typewriter
@@ -39,73 +46,96 @@ const Home = () => {
               for your complex engineering requirements.
             </p>
           </div>
-
-          <button className="dmc-button">Get a Quote</button>
+          <Link to="#">
+            <button className="dmc-button">Get a Quote</button>
+          </Link>
         </div>
       </section>
-      <section className="services">
-        <h1>
-          <div className="line"></div>
-          Products
-        </h1>
-        <main className="page-content">
-          <div className="card-wrapper">
-            <div className="card">
-              <div className="border-left"></div>
-              <div className="border-top"></div>
-              <div className="border-right"></div>
-              <div className="border-bottom"></div>
-              <div className="content">
-                <h2 className="title">Automation</h2>
-                <p className="copy">
-                  Check out all of these gorgeous mountain trips with beautiful
-                  views of, you guessed it, the mountains
-                </p>
-                <button className="btn">Catalogue</button>
+
+      <section className="products">
+        <h1> Our Products </h1>
+        <div className="row product-cards">
+          <div className="col-12 col-sm-6 col-md-4">
+            <div className="card-wrapper">
+              <div className="card">
+                <img src={product1} alt="..." />
+                <div className="card-caption">
+                  <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Culpa ratione earum suscipit, voluptatem in explicabo
+                    inventore libero aliquam harum maxime.
+                  </p>
+                  <br />
+                  <button className="card-btn">Read More</button>
+                </div>
               </div>
+              <h3 className="card-title">Automation</h3>
             </div>
-            <div className="card-title">Automation</div>
           </div>
-          <div className="card-wrapper">
-            <div className="card">
-              <div className="border-left"></div>
-              <div className="border-top"></div>
-              <div className="border-right"></div>
-              <div className="border-bottom"></div>
-              <div className="content">
-                {/* <h2 className="title">Packaging Machines</h2> */}
-                <p className="copy">
-                  Plan your next beach trip with these fabulous destinations
-                </p>
-                <button className="btn">Catalogue</button>
+          <div className="col-12 col-sm-6 col-md-4">
+            <div className="card-wrapper">
+              <div className="card">
+                <img src={product2} alt="..." />
+                <div className="card-caption">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Delectus minima temporibus et molestias ipsa impedit
+                    necessitatibus optio sit adipisci libero!
+                  </p>
+                  <br />
+                  <button className="card-btn">Read More</button>
+                </div>
               </div>
+              <h3 className="card-title">Packaging Machines</h3>
             </div>
-            <div className="card-title">Packaging Machines</div>
           </div>
-          <div className="card-wrapper">
-            <div className="card">
-              <div className="border-left"></div>
-              <div className="border-top"></div>
-              <div className="border-right"></div>
-              <div className="border-bottom"></div>
-              <div className="content">
-                <h2 className="title">Material Handling Equipments</h2>
-                <p className="copy">It's the desert you've always dreamed of</p>
-                <button className="btn">Catalogue</button>
+          <div className="col-12 col-sm-12 col-md-4">
+            <div className="card-wrapper">
+              <div className="card">
+                <img src={product3} alt="..." />
+                <div className="card-caption">
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                    quos repellendus reprehenderit debitis rerum laborum amet
+                    architecto velit alias accusamus.
+                  </p>
+                  <br />
+                  <button className="card-btn">Read More </button>
+                </div>
               </div>
+              <h3 className="card-title">Material Handling</h3>
             </div>
-            <div className="card-title">Material Handling Equipments</div>
           </div>
-        </main>
+        </div>
       </section>
 
       <section className="about">
-        <div>
-          <img className="about-img" src={about} alt="about-img" />
+        <div className="row gx-0">
+          <div className="col-12 col-md-6">
+            <img className="about-img" src={about} alt="..." />
+          </div>
+
+          <div className="col-12 col-md-6 about-text">
+            <h1>Who We Are</h1>
+            <p>
+              DMC Manufacturers is comprised of a group of engineering experts
+              who focus on creative solutions for complex engineering projects.
+              We’ve accomplished much success with various projects. We strive
+              for innovation and work carefully in order to stay within budget
+              while providing maximum value for our clients.
+            </p>
+            <div className="about-btn-wrapper">
+              <Link to="#">
+                <button className="about-btn">Read More</button>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="about-text">
-          <h1>ABout section</h1>
-        </div>
+      </section>
+
+      <section className="projects">
+        <h1>Our Projects</h1>
+        <ProjectCarousel slides={ProjectsData} />
       </section>
     </>
   );

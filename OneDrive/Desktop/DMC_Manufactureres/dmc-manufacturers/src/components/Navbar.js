@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import logo from "../icons/logo2.png";
 
@@ -34,51 +34,73 @@ const Navbar = () => {
   return (
     <>
       <nav className={navbar ? "navbar active" : "navbar"}>
-        <Link to="/" className="navbar-logo">
+        <NavLink to="/" className="navbar-logo">
           <img className="nav-img" src={logo} alt=".." />
-          <span className="logo-text">DMC</span>
-        </Link>
+          <span className="logo-text">DMC MANUFACTURERS</span>
+        </NavLink>
         <div className="menu-icon" onClick={handleClick}>
           <i className={click ? "fas fa-times" : "fas fa-bars"} />
         </div>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="nav-item">
-            <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-              Home
-            </Link>
+            <NavLink
+              activeClassName="nav-links-active"
+              exact
+              to="/projects"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
+              Projects
+            </NavLink>
           </li>
           <li
             className="nav-item"
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           >
-            <Link
+            <NavLink
+              activeClassName="nav-links-active"
+              exact
               to="/products"
               className="nav-links"
               onClick={closeMobileMenu}
             >
               Products <i className="fas fa-caret-down" />
-            </Link>
+            </NavLink>
             {dropdown && <Dropdown />}
           </li>
           <li className="nav-item">
-            <Link to="/sectors" className="nav-links" onClick={closeMobileMenu}>
-              Sectors
-            </Link>
+            <NavLink
+              activeClassName="nav-links-active"
+              exact
+              to="/gallery"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
+              Gallery
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
+            <NavLink
+              activeClassName="nav-links-active"
+              exact
+              to="/about"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
               About
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link
+            <NavLink
+              activeClassName="nav-links-active"
+              exact
               to="/contact-us"
               className="nav-links"
               onClick={closeMobileMenu}
             >
               Contact Us
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </nav>

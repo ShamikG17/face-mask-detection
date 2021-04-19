@@ -3,22 +3,31 @@
 }
 
 .navbar {
-  background: transparent;
-  height: 80px;
+
+  background-color: transparent;
+  height: 12vh;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   font-size: 1.2rem;
   position: fixed;
   top: 0%;
   z-index: 99;
-  border-bottom: solid  rgba(255, 255, 255,0.5)  1px;
+  padding: 0 7%;
+  border-bottom: 1px solid  rgba(255, 255, 255, 0.1);
+  border-color: rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
 }
 
 .navbar.active {
-  background-image: radial-gradient(circle, #4477c8, #4375c7, #4273c7, #4170c6, #406ec5);
-  border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: none;
+    height: 10vh;
+    box-shadow: 0 2px 15px -2px rgb(0 0 0 / 20%);
 }
 
 .nav-img {
@@ -27,18 +36,18 @@
 
 .logo-text {
   position: relative;
-  transform: translate(-15%, 0);
 }
 
 .navbar-logo {
-  color: #fff;
+  color: #000;
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 500;
   display: flex;
   align-items: center;
+  /* margin-left: 3.7rem; */
 }
 
 .fa-firstdraft {
@@ -52,9 +61,7 @@
   grid-gap: 10px;
   list-style: none;
   text-align: center;
-  width: 70vw;
   justify-content: end;
-  margin-right: 2rem;
 }
 
 .nav-item {
@@ -64,16 +71,21 @@
 }
 
 .nav-links {
-  color: white;
+  color: #25282D;
   font-weight: 500;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  margin: 0 1rem;
+  padding: 0.2rem 0;
+  transition: all 0.2s ease-out
+}
+
+.nav-links-active {
+  border-bottom: 2px solid #E0A42B;
+  font-weight: bold;
 }
 
 .nav-links:hover {
-  background-color: var(--yellow);
-  border-radius: 4px;
-  transition: all 0.2s ease-out;
+  color: #F6A41D;
 }
 
 .fa-bars {
@@ -89,14 +101,6 @@
 }
 
 @media screen and (max-width: 960px) {
-  /* .NavbarItems {
-    position: relative;
-  } */
-  .navbar {
-    position: absolute;
-    top: 0%;
-    z-index: 99;  
-  }
 
   .nav-menu {
     display: flex;
@@ -111,7 +115,7 @@
   }
 
   .nav-menu.active {
-    background: #242222;
+    background: #fff;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
@@ -130,25 +134,18 @@
     border-radius: 0;
   }
 
-  .navbar-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(5%, 10%);
-  }
-
   .menu-icon {
     display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
   }
 
+  .fa-bars {
+    color: #000;
+  }
+
   .fa-times {
-    color: #fff;
+    color: #000;
     font-size: 2rem;
   }
 
@@ -169,9 +166,5 @@
     background: #fff;
     color: var(--yellow);
     transition: 250ms;
-  }
-
-  button {
-    display: none;
   }
 }
